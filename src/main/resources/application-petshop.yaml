@@ -1,5 +1,9 @@
 spring:
 
+  data:
+    mongodb:
+      uri: mongodb://citadel:citadel123@localhost:27017/citadel_db
+      database: citadel_db
 
   datasource:
     url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:petshop}

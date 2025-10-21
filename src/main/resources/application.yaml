@@ -6,6 +6,11 @@ spring:
   application:
     name: Archetype
 
+  data:
+    mongodb:
+      uri: mongodb://citadel:citadel123@localhost:27017/citadel_db
+      database: citadel_db
+
   config:
     # .env file outside the project directory
     # contains APP_PROFILE=local

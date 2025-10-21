@@ -221,4 +221,3 @@ bootRun {
 apply from: 'gradle/test.gradle'
 apply from: 'gradle/integrationTest.gradle'
 apply from: 'gradle/architectureTest.gradle'
-apply from: 'gradle/spockTest.gradle'

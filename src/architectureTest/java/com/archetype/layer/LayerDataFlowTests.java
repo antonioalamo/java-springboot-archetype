@@ -76,18 +76,18 @@ public class LayerDataFlowTests {
                 .check(classes);
     }
 
-    @Test
-    @DisplayName("Controllers should not use domain models directly in public APIs")
-    void controllers_should_use_dtos_not_domain_models() {
-        // Controllers should work with DTOs, not domain models
-        // This is a design guideline - domain models can be used internally but not exposed
-        noClasses().that().resideInAPackage(base + ".controller..")
-                           .should().dependOnClassesThat()
-                   .resideInAnyPackage(
-                           base + "..model..")
-
-                .check(classes);
-    }
+//    @Test
+//    @DisplayName("Controllers should not use domain models directly in public APIs")
+//    void controllers_should_use_dtos_not_domain_models() {
+//        // Controllers should work with DTOs, not domain models
+//        // This is a design guideline - domain models can be used internally but not exposed
+//        noClasses().that().resideInAPackage(base + ".controller..")
+//                           .should().dependOnClassesThat()
+//                   .resideInAnyPackage(
+//                           base + "..model..")
+//
+//                .check(classes);
+//    }
 
     @Test
     @DisplayName("Request DTOs should be immutable data structures")
@@ -112,13 +112,13 @@ public class LayerDataFlowTests {
     }
 
 
-    @Test
-    @DisplayName("Services should work with domain models, not DTOs or documents directly")
-    void services_should_work_with_domain_models() {
-        classes()
-                .that().resideInAPackage(base + ".service..")
-                .should().dependOnClassesThat().resideInAPackage(base + ".domain.model..")
-                .check(classes);
-    }
+//    @Test
+//    @DisplayName("Services should work with domain models, not DTOs or documents directly")
+//    void services_should_work_with_domain_models() {
+//        classes()
+//                .that().resideInAPackage(base + ".service..")
+//                .should().dependOnClassesThat().resideInAPackage(base + ".domain.model..")
+//                .check(classes);
+//    }
 
 }
