@@ -1,9 +1,14 @@
 package com.archetype.layer.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
 
+@Getter
+@Setter
 public class News {
     private String id;
     private String title;
@@ -79,22 +84,16 @@ public class News {
         return grade != null && grade >= 8;
     }
 
-    public String getId() {
-        return id;
-    }
 
     public String getSummary() {
         return title + ": " + content.substring(0, Math.min(100, content.length())) + "...";
     }
-
-    public String getTitle() { return title; }
 
     public void changeTitle(String title) {
         validateTitle(title);
         this.title = title;
     }
 
-    public String getContent() { return content; }
     public void setContent(String content) {
         if (content == null || content.isEmpty()) {
             throw new IllegalArgumentException("Content cannot be null or empty");
@@ -102,19 +101,16 @@ public class News {
         this.content = content;
     }
 
-    public String getGuid() { return guid; }
     public void setGuid(String guid) {
         validateGuid(guid);
         this.guid = guid;
     }
 
-    public String getLink() { return link; }
     public void setLink(String link) {
         validateLink(link);
         this.link = link;
     }
 
-    public Double getGrade() { return grade; }
     public void setGrade(Double grade) {
         validateGrade(grade);
         this.grade = grade;
@@ -136,6 +132,5 @@ public class News {
     }
 
 
-    public record Source(String id, String name, String description){
-    }
+    public record Source(String id, String name, String description){}
 }
