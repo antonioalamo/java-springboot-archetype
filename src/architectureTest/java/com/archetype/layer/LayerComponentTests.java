@@ -26,23 +26,23 @@ public class LayerComponentTests {
                 .check(classes);
     }
 
-//    @Test
-//    @DisplayName("DTO mappers should be in mapper.dto package")
-//    void dto_mappers_should_be_in_correct_package() {
-//        classes()
-//                .that().haveSimpleNameEndingWith("Mapper")
-//                .and().resideInAnyPackage(base + ".mapper.dto..")
-//                .should().onlyDependOnClassesThat().resideInAnyPackage(
-//                        base + ".controller.dto..",
-//                        base + ".controller..",
-//                        base + ".domain.dto..",
-//                        "java..",
-//                        "org.mapstruct..",
-//                        "org.springframework.."
-//                )
-//                .because("ADR 0002: DTO mappers only work with domain models and DTOs")
-//                .check(classes);
-//    }
+    @Test
+    @DisplayName("DTO mappers should be in mapper.dto package")
+    void dto_mappers_should_be_in_correct_package() {
+        classes()
+                .that().haveSimpleNameEndingWith("Mapper")
+                .and().resideInAnyPackage(base + ".mapper.dto..")
+                .should().onlyDependOnClassesThat().resideInAnyPackage(
+                        base + ".controller.dto..",
+                        base + ".domain.model..",
+                        base + ".domain.dto..",
+                        "java..",
+                        "org.mapstruct..",
+                        "org.springframework.."
+                )
+                .because("ADR 0002: DTO mappers only work with domain models and DTOs")
+                .check(classes);
+    }
 
     @Test
     @DisplayName("Persistence mappers should be in mapper.persistence package")
