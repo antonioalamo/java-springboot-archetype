@@ -95,9 +95,7 @@ public class News {
     }
 
     public void setContent(String content) {
-        if (content == null || content.isEmpty()) {
-            throw new IllegalArgumentException("Content cannot be null or empty");
-        }
+        validateContent(content);
         this.content = content;
     }
 
