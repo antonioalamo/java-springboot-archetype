@@ -53,6 +53,7 @@ public class LayerComponentTests {
                 .should().onlyDependOnClassesThat().resideInAnyPackage(
                         base + ".domain.model..",
                         base + ".persistence.document..",
+                        base + ".persistence.entity..",
                         "java..",
                         "org.mapstruct..",
                         "org.springframework.."

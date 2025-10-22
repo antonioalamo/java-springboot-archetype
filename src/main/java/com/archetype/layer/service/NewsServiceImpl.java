@@ -1,6 +1,7 @@
 package com.archetype.layer.service;
 
 import com.archetype.layer.domain.model.News;
+import com.archetype.layer.mapper.persistence.NewsPersistenceMapper;
 import com.archetype.layer.persistence.NewsRepository;
 import com.archetype.layer.persistence.entity.NewsEntity;
 import com.archetype.layer.event.HighImportanceNewsCreatedEvent;
@@ -17,23 +18,25 @@ public class NewsServiceImpl implements NewsService {
 
     private final NewsRepository newsRepository;
     private final ApplicationEventPublisher eventPublisher;
+    private final NewsPersistenceMapper persistenceMapper;
 
-    public NewsServiceImpl(NewsRepository newsRepository, ApplicationEventPublisher eventPublisher) {
+    public NewsServiceImpl(NewsRepository newsRepository, ApplicationEventPublisher eventPublisher,
+                           NewsPersistenceMapper persistenceMapper) {
         this.newsRepository = newsRepository;
         this.eventPublisher = eventPublisher;
+        this.persistenceMapper = persistenceMapper;
     }
 
     @Override
     public News create(News news) {
-
         // Check GUID uniqueness
         if (newsRepository.existsByGuid(news.getGuid())) {
             throw new NewsCreationException("El guid " + news.getGuid() + " ya está en uso");
         }
 
-        NewsEntity entityToSave = NewsEntity.fromDomain(news);
+        NewsEntity entityToSave = persistenceMapper.fromDomain(news);
         NewsEntity savedEntity = newsRepository.save(entityToSave);
-        News savedNews = savedEntity.toDomain();
+        News savedNews = persistenceMapper.toDomain(savedEntity);
 
         // Publish event if the news is of high importance
         if (savedNews.isHighImportance()) {
@@ -48,20 +51,21 @@ public class NewsServiceImpl implements NewsService {
         if (id == null || id.trim().isEmpty()) {
             throw new NewsValidationException("El ID no puede ser nulo o vacío");
         }
-        return newsRepository.findById(id).map(NewsEntity::toDomain);
+        return newsRepository.findById(id)
+                .map(persistenceMapper::toDomain);
     }
 
-  @Override
+    @Override
     public List<News> list() {
         return newsRepository.findAll().stream()
-                .map(NewsEntity::toDomain)
+                .map(persistenceMapper::toDomain)
                 .toList();
     }
 
     @Override
     public List<String> listNewsSummaries() {
         return newsRepository.findAll().stream()
-                .map(NewsEntity::toDomain)
+                .map(persistenceMapper::toDomain)
                 .map(News::getSummary)
                 .toList();
     }
@@ -73,7 +77,7 @@ public class NewsServiceImpl implements NewsService {
         }
         String lowerCaseKeyword = keyword.toLowerCase();
         return newsRepository.findAll().stream()
-                .map(NewsEntity::toDomain)
+                .map(persistenceMapper::toDomain)
                 .filter(news -> news.getTitle().toLowerCase().contains(lowerCaseKeyword) ||
                         news.getContent().toLowerCase().contains(lowerCaseKeyword))
                 .toList();
@@ -85,7 +89,7 @@ public class NewsServiceImpl implements NewsService {
             throw new NewsValidationException("El ID no puede ser nulo o vacío");
         }
         return newsRepository.findById(id).map(existingEntity -> {
-            News existingNews = existingEntity.toDomain();
+            News existingNews = persistenceMapper.toDomain(existingEntity);
 
             if (newsUpdates.getTitle() != null) {
                 existingNews.changeTitle(newsUpdates.getTitle());
@@ -103,9 +107,9 @@ public class NewsServiceImpl implements NewsService {
                 existingNews.setGrade(newsUpdates.getGrade());
             }
 
-            NewsEntity entityToSave = NewsEntity.fromDomain(existingNews);
+            NewsEntity entityToSave = persistenceMapper.fromDomain(existingNews);
             NewsEntity savedEntity = newsRepository.save(entityToSave);
-            return savedEntity.toDomain();
+            return persistenceMapper.toDomain(savedEntity);
         });
     }
 
