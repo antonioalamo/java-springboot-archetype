@@ -155,9 +155,9 @@ dependencies {
     implementation libs.logstash.logback.encoder
     implementation libs.loki.logback.appender
     implementation libs.loki.protobuf
-    implementation libs.opentelemetry.spring.boot.starter
-    runtimeOnly libs.micrometer.registry.otlp
-    runtimeOnly libs.micrometer.registry.prometheus
+//    implementation libs.opentelemetry.spring.boot.starter
+//    runtimeOnly libs.micrometer.registry.otlp
+//    runtimeOnly libs.micrometer.registry.prometheus
 
     // --- Code Generation & Processing ---
     compileOnly libs.lombok

@@ -22,47 +22,44 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://citadel:citadel123@localhost:27017/citadel_db
-      database: citadel_db
-#    mongodb:
-#      host: localhost
-#      port: 27017
-#      database: ${MONGODB_DATABASE}
-#      username: ${MONGODB_USERNAME}
-#      password: ${MONGODB_PASSWORD}
-#      authentication-database: admin
-#      auto-index-creation: on
-
-    redis:
       host: localhost
-      port: 6379
-      password: ${REDIS_PASSWORD}
-      database: 0
+      port: 27017
+      database: ${MONGODB_DATABASE}
+      username: ${MONGODB_USERNAME}
+      password: ${MONGODB_PASSWORD}
+      authentication-database: admin
+      auto-index-creation: on
+
+#    redis:
+#      host: localhost
+#      port: 6379
+#      password: ${REDIS_PASSWORD}
+#      database: 0
 
   jta:
     enabled: false
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/archetype
-    username: ${POSTGRES_USERNAME}
-    password: ${POSTGRES_PASSWORD}
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/archetype
+#    username: ${POSTGRES_USERNAME}
+#    password: ${POSTGRES_PASSWORD}
+#
+#    hikari:
+#      driver-class-name: org.postgresql.Driver
+#      maximum-pool-size: 10
+#      minimum-idle: 4
+#      jdbc-url: jdbc:postgresql://localhost:5432/archetype
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    open-in-view: false
 
-    hikari:
-      driver-class-name: org.postgresql.Driver
-      maximum-pool-size: 10
-      minimum-idle: 4
-      jdbc-url: jdbc:postgresql://localhost:5432/archetype
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: ${RABBITMQ_USERNAME}
+#    password: ${RABBITMQ_PASSWORD}
 
 logged:
   color: true
@@ -71,17 +68,17 @@ logging:
   pattern:
     console: "%cyan(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %30.30(-- %logger{30}) - %msg%n"
 
-otel:
-  metrics.exporter: otlp
-  # Disable logs exporter if using the Logback loki appender.
-  logs.exporter: none
-  traces.exporter: none
-  sdk.disabled: false
-  instrumentation.common.default-enabled: false
+#otel:
+#  metrics.exporter: otlp
+#  # Disable logs exporter if using the Logback loki appender.
+#  logs.exporter: none
+#  traces.exporter: none
+#  sdk.disabled: false
+#  instrumentation.common.default-enabled: false
 
 # Client configurations
-clients:
-  pokeapi:
-    url: https://pokeapi.co
-    connect-timeout: 5000
-    read-timeout: 10000
+#clients:
+#  pokeapi:
+#    url: https://pokeapi.co
+#    connect-timeout: 5000
+#    read-timeout: 10000
