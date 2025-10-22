@@ -1,6 +1,8 @@
 package com.archetype.layer.persistence.entity;
 
 import com.archetype.layer.domain.model.News;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Getter
+@Setter
 @Document(collection = "news")
 public class NewsEntity {
 
@@ -19,13 +23,6 @@ public class NewsEntity {
     private String link;
     private Double grade;
     private List<Source> sources = new ArrayList<>();
-
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-
-    public String getGuid() {
-        return guid;
-    }
 
     public static NewsEntity fromDomain(News news) {
         NewsEntity entity = new NewsEntity();
