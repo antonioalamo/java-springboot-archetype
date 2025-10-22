@@ -113,10 +113,10 @@ public class LayerDataFlowTests {
 
 
 //    @Test
-//    @DisplayName("Services should work with domain models, not DTOs or documents directly")
-//    void services_should_work_with_domain_models() {
-//        classes()
-//                .that().resideInAPackage(base + ".service..")
+//    @DisplayName("Controllers should NOT return domain models directly")
+//    void controllers_should_not_return_domain_models() {
+//        noClasses()
+//                .that().resideInAPackage(base + ".controller..")
 //                .should().dependOnClassesThat().resideInAPackage(base + ".domain.model..")
 //                .check(classes);
 //    }
