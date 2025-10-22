@@ -1,4 +1,0 @@
-otel:
-  metrics.exporter: none
-  logs.exporter: none
-  traces.exporter: none
