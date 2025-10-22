@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+
+  application:
+    name: Archetype
+
+  data:
+    mongodb:
+      uri: mongodb://citadel:citadel123@localhost:27017/citadel_db
+      database: citadel_db
+
+  config:
+    # .env file outside the project directory
+    # contains APP_PROFILE=local
+    import: optional:file:../local-config/.env[.properties]
+
+  profiles:
+    active: ${APP_PROFILE:default}
+
+  cloud:
+    config:
+      enabled: false
+
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: ${KEYCLOAK_ISSUER_URI}
+#          jwk-set-uri: ${KEYCLOAK_JWK_URI}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+    info:
+      access: read_only
+    metrics:
+      access: read_only
+    env:
+      access: read_only
+    configprops:
+      access: read_only
+    beans:
+      access: read_only
+    mappings:
+      access: read_only
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+    operations-sorter: method
+    tags-sorter: alpha
+  packages-to-scan: com.archetype
