@@ -31,7 +31,7 @@ public class GeneralArchTest {
     void controller_info(JavaClasses classes) {
 
         classes().that()
-                 .resideInAPackage("com.archetype.layer.controller")
+                 .resideInAPackage("com.archetype.news.controller")
                  .should(implementMatchingInfoInterface)
                  .because("ADR 0009: Controller OpenAPI annotations through interface-based \"Info\" classes")
                  .check(classes);

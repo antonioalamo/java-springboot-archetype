@@ -29,7 +29,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Example base package: `com.example.<module>.layer` or `com.archetype.layer`
+Example base package: `com.example.<module>.layer` or `com.archetype.news`
 
 Top-level packages under module `layer`:
 
@@ -99,13 +99,13 @@ Modulith specifics
 Examples (based on this repository)
 -----------------------------------
 
-- `com.archetype.layer.controller.PokemonController`
-- `com.archetype.layer.service.PokemonService`
-- `com.archetype.layer.domain.model.Pokemon`
-- `com.archetype.layer.domain.dto.request.PokemonCreate`
-- `com.archetype.layer.domain.dto.mapper.PokemonMapper`
-- `com.archetype.layer.persistence.document.PokemonDocument`
-- `com.archetype.layer.persistence.internal.PokemonRepository` (repositories live under persistence)
+- `com.archetype.news.controller.PokemonController`
+- `com.archetype.news.service.PokemonService`
+- `com.archetype.news.domain.model.Pokemon`
+- `com.archetype.news.controller.dto.request.PokemonCreate`
+- `com.archetype.news.domain.dto.mapper.PokemonMapper`
+- `com.archetype.news.persistence.document.PokemonDocument`
+- `com.archetype.news.persistence.internal.PokemonRepository` (repositories live under persistence)
 
 Directory tree example
 ----------------------

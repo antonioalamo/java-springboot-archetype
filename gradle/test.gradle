@@ -39,13 +39,13 @@ dependencies {
 pitest {
     junit5PluginVersion.set('1.2.3')
     targetClasses.set([
-        "${mainPackage}.layer.*",
+        "${mainPackage}.news.*",
         "${mainPackage}.hexagonal.*",
         "${mainPackage}.onion.*",
         "${mainPackage}.mvc.*",
     ])
     targetTests.set([
-        "${mainPackage}.layer.*",
+        "${mainPackage}.news.*",
         "${mainPackage}.hexagonal.*",
         "${mainPackage}.onion.*",
         "${mainPackage}.mvc.*",

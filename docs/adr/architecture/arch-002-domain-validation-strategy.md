@@ -51,10 +51,12 @@ The domain layer is the core of the application, modeling business rules and ens
 
 ### Examples
 **Constructor with Validation and Domain Exception:**
-```java
-package com.archetype.layer.domain.model;
 
-import com.archetype.layer.domain.exception.PokemonValidationException;
+```java
+package com.archetype.news.domain.model;
+
+import com.archetype.news.domain.exception.PokemonValidationException;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -87,8 +89,9 @@ public class Pokemon {
 ```
 
 **Domain Exception Example:**
+
 ```java
-package com.archetype.layer.domain.exception;
+package com.archetype.news.domain.exception;
 
 public class PokemonValidationException extends RuntimeException {
     public PokemonValidationException(String message) {

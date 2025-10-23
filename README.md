@@ -52,8 +52,8 @@ This archetype contains **4 complete architectural implementations** in separate
 
 | Architecture | Package | Description | Best For |
 |--------------|---------|-------------|----------|
-| **Layered** | `com.archetype.layer` | Traditional N-tier architecture | Simple CRUD applications, rapid prototyping |
-| **Hexagonal** | `com.archetype.hexagonal` | Ports & Adapters pattern | Complex business logic, testability focus |
+| **Layered** | `com.archetype.news` | Traditional N-tier architecture | Simple CRUD applications, rapid prototyping |
+| **Hexagonal** | `com.archetype.blogs` | Ports & Adapters pattern | Complex business logic, testability focus |
 | **Onion** | `com.archetype.onion` | Dependency inversion architecture | Domain-driven design, enterprise applications |
 | **MVC** | `com.archetype.mvc` | Model-View-Controller pattern | Web applications with server-side rendering |
 
@@ -63,7 +63,7 @@ This archetype contains **4 complete architectural implementations** in separate
 <summary><strong>📁 Layered Architecture</strong></summary>
 
 ```
-com.archetype.layer/
+com.archetype.news/
 ├── controller/          # REST endpoints
 ├── service/            # Business logic
 ├── domain/             # Domain models and DTOs
@@ -81,7 +81,7 @@ com.archetype.layer/
 <summary><strong>🔗 Hexagonal Architecture</strong></summary>
 
 ```
-com.archetype.hexagonal/
+com.archetype.blogs/
 ├── domain/
 │   └── model/         # Pure domain models
 ├── application/

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-//@EnableFeignClients(basePackages = "com.archetype.layer.client")
+//@EnableFeignClients(basePackages = "com.archetype.news.client")
 //@EnableMongoRepositories
 //@EnableJpaRepositories
 public class ArchetypeApplication {
