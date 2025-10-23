@@ -3,7 +3,7 @@ package com.archetype.layer.service;
 import com.archetype.layer.domain.model.News;
 import com.archetype.layer.mapper.persistence.NewsPersistenceMapper;
 import com.archetype.layer.persistence.NewsRepository;
-import com.archetype.layer.persistence.entity.NewsEntity;
+import com.archetype.layer.persistence.document.NewsDocument;
 import com.archetype.layer.event.HighImportanceNewsCreatedEvent;
 import com.archetype.layer.service.exception.NewsCreationException;
 import com.archetype.layer.service.exception.NewsValidationException;
@@ -34,8 +34,8 @@ public class NewsServiceImpl implements NewsService {
             throw new NewsCreationException("El guid " + news.getGuid() + " ya está en uso");
         }
 
-        NewsEntity entityToSave = persistenceMapper.fromDomain(news);
-        NewsEntity savedEntity = newsRepository.save(entityToSave);
+        NewsDocument entityToSave = persistenceMapper.fromDomain(news);
+        NewsDocument savedEntity = newsRepository.save(entityToSave);
         News savedNews = persistenceMapper.toDomain(savedEntity);
 
         // Publish event if the news is of high importance
@@ -107,8 +107,8 @@ public class NewsServiceImpl implements NewsService {
                 existingNews.setGrade(newsUpdates.getGrade());
             }
 
-            NewsEntity entityToSave = persistenceMapper.fromDomain(existingNews);
-            NewsEntity savedEntity = newsRepository.save(entityToSave);
+            NewsDocument entityToSave = persistenceMapper.fromDomain(existingNews);
+            NewsDocument savedEntity = newsRepository.save(entityToSave);
             return persistenceMapper.toDomain(savedEntity);
         });
     }
