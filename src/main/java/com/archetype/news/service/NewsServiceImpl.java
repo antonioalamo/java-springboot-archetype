@@ -7,6 +7,7 @@ import com.archetype.news.persistence.document.NewsDocument;
 import com.archetype.news.event.HighImportanceNewsCreatedEvent;
 import com.archetype.news.service.exception.NewsCreationException;
 import com.archetype.news.service.exception.NewsValidationException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +15,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class NewsServiceImpl implements NewsService {
 
     private final NewsRepository newsRepository;
     private final ApplicationEventPublisher eventPublisher;
     private final NewsPersistenceMapper persistenceMapper;
 
-    public NewsServiceImpl(NewsRepository newsRepository, ApplicationEventPublisher eventPublisher,
-                           NewsPersistenceMapper persistenceMapper) {
-        this.newsRepository = newsRepository;
-        this.eventPublisher = eventPublisher;
-        this.persistenceMapper = persistenceMapper;
-    }
     @Override
     public News create(News news) {
         // Check GUID uniqueness
