@@ -2,7 +2,7 @@ services:
   archetype:
     build:
       context: .
-      dockerfile: archetype.dockerfile
+      dockerfile: news.dockerfile
     container_name: archetype
     ports:
       - "8080:8080"
