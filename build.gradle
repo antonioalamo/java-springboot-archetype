@@ -14,7 +14,7 @@ plugins {
 // ===== Project Configuration =====
 ext {
     mainPackage = 'com.archetype'
-    appName = 'archetype'
+    appName = 'news'
 
     // Azure repository configuration
     /*  azure = {
