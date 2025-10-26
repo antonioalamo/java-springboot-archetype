@@ -24,7 +24,7 @@ We adopt a comprehensive architecture testing strategy focused on **smart intern
 
 ### Core Principles
 
-1. **Internal-Only Validation**: Architecture rules only apply to dependencies within `com.archetype.news.*` → `com.archetype.news.*`
+1. **Internal-Only Validation**: Architecture rules only apply to dependencies within `com.example.news.*` → `com.example.news.*`
 2. **External Dependency Freedom**: Allow unrestricted dependencies on external libraries, frameworks, and other modules
 3. **Component Role Enforcement**: Validate that components follow naming conventions and annotation requirements
 4. **Data Flow Validation**: Ensure proper DTO/Domain model boundaries and mapper responsibilities
@@ -94,7 +94,7 @@ void persistence_should_not_depend_on_upper_layers() {
 
 ### External Dependency Approach
 
-- Allow any dependency outside `com.archetype.news.*`
+- Allow any dependency outside `com.example.news.*`
 - Focus validation only on internal module relationships
 - Use custom conditions to filter out external dependencies from validation
 

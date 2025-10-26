@@ -21,7 +21,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Base package example: `com.archetype.<module>.onion` or `com.archetype.onion.<submodule>`
+Base package example: `com.example.<module>.onion` or `com.example.onion.<submodule>`
 
 Preferred top-level package structure under the module:
 
@@ -54,11 +54,11 @@ Examples (based on repository)
 ------------------------------
 The repository contains an onion module under `src/main/java/com/archetype/onion`. Example package usage:
 
-- `com.archetype.onion.domain.model.Order` (domain entity)
-- `com.archetype.onion.application.port.out.OrderRepositoryPort` (outbound port interface)
-- `com.archetype.onion.application.service.CreateOrderService` (implements inbound use-case and orchestrates domain)
-- `com.archetype.onion.infrastructure.persistence.JpaOrderRepository` (implements `OrderRepositoryPort`)
-- `com.archetype.onion.presentation.web.OrderController` (HTTP controller that calls inbound ports)
+- `com.example.onion.domain.model.Order` (domain entity)
+- `com.example.onion.application.port.out.OrderRepositoryPort` (outbound port interface)
+- `com.example.onion.application.service.CreateOrderService` (implements inbound use-case and orchestrates domain)
+- `com.example.onion.infrastructure.persistence.JpaOrderRepository` (implements `OrderRepositoryPort`)
+- `com.example.onion.presentation.web.OrderController` (HTTP controller that calls inbound ports)
 
 ASCII tree (canonical)
 ----------------------

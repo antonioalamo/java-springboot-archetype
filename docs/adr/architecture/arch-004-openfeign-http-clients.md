@@ -99,8 +99,8 @@ dependencies {
 ```java
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.archetype")
-public class ArchetypeApplication {
+@EnableFeignClients(basePackages = "com.example")
+public class NewsApplication {
     // implementation
 }
 ```

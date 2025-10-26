@@ -52,10 +52,10 @@ This archetype contains **4 complete architectural implementations** in separate
 
 | Architecture | Package | Description | Best For |
 |--------------|---------|-------------|----------|
-| **Layered** | `com.archetype.news` | Traditional N-tier architecture | Simple CRUD applications, rapid prototyping |
-| **Hexagonal** | `com.archetype.blogs` | Ports & Adapters pattern | Complex business logic, testability focus |
-| **Onion** | `com.archetype.onion` | Dependency inversion architecture | Domain-driven design, enterprise applications |
-| **MVC** | `com.archetype.mvc` | Model-View-Controller pattern | Web applications with server-side rendering |
+| **Layered** | `com.example.news` | Traditional N-tier architecture | Simple CRUD applications, rapid prototyping |
+| **Hexagonal** | `com.example.blogs` | Ports & Adapters pattern | Complex business logic, testability focus |
+| **Onion** | `com.example.onion` | Dependency inversion architecture | Domain-driven design, enterprise applications |
+| **MVC** | `com.example.mvc` | Model-View-Controller pattern | Web applications with server-side rendering |
 
 ### Package Structure Examples
 
@@ -63,7 +63,7 @@ This archetype contains **4 complete architectural implementations** in separate
 <summary><strong>📁 Layered Architecture</strong></summary>
 
 ```
-com.archetype.news/
+com.example.news/
 ├── controller/          # REST endpoints
 ├── service/            # Business logic
 ├── domain/             # Domain models and DTOs
@@ -81,7 +81,7 @@ com.archetype.news/
 <summary><strong>🔗 Hexagonal Architecture</strong></summary>
 
 ```
-com.archetype.blogs/
+com.example.blogs/
 ├── domain/
 │   └── model/         # Pure domain models
 ├── application/
@@ -103,7 +103,7 @@ com.archetype.blogs/
 <summary><strong>🧅 Onion Architecture</strong></summary>
 
 ```
-com.archetype.onion/
+com.example.onion/
 ├── domain/
 │   └── model/         # Core domain entities
 ├── application/
@@ -125,7 +125,7 @@ com.archetype.onion/
 <summary><strong>📱 MVC Architecture</strong></summary>
 
 ```
-com.archetype.mvc/
+com.example.mvc/
 ├── controller/        # MVC controllers
 ├── model/            # View models
 ├── service/          # Business services
@@ -226,8 +226,8 @@ Use the provided scripts to rename packages for new projects:
 
 ```bash
 # Rename all packages in the project
-./rename-package.sh src com.archetype com.yourcompany.yourproject
-# or on Windows: rename-package.bat src com.archetype com.yourcompany.yourproject
+./rename-package.sh src com.example com.yourcompany.yourproject
+# or on Windows: rename-package.bat src com.example com.yourcompany.yourproject
 ```
 
 ### Building and Running

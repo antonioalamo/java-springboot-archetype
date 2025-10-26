@@ -36,7 +36,7 @@ spring:
 # Logging configuration for tests
 logging:
   level:
-    com.archetype: DEBUG
+    com.example: DEBUG
     org.springframework.web: DEBUG
     org.springframework.test: DEBUG
   pattern:

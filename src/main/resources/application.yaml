@@ -48,4 +48,4 @@ springdoc:
     path: /swagger-ui
     operations-sorter: method
     tags-sorter: alpha
-  packages-to-scan: com.archetype
+  packages-to-scan: com.example

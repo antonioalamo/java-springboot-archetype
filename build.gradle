@@ -13,7 +13,7 @@ plugins {
 
 // ===== Project Configuration =====
 ext {
-    mainPackage = 'com.archetype'
+    mainPackage = 'com.example'
     appName = 'news'
 
     // Azure repository configuration
@@ -31,7 +31,7 @@ ext {
 
 group = "${mainPackage}"
 version = '0.0.1-SNAPSHOT'
-description = 'Archetype is a skeleton that serves as a template for new projects.'
+description = 'NewsApp is an App that manage news.'
 
 // ===== Gradle Wrapper Configuration =====
 wrapper {
@@ -174,7 +174,7 @@ dependencies {
 }
 
 // ===== Spring Boot Configuration =====
-springBoot.mainClass = "${mainPackage}.ArchetypeApplication"
+springBoot.mainClass = "${mainPackage}.NewsApplication"
 
 jar.enabled = false
 bootJar.archiveFileName = "${appName}.jar"

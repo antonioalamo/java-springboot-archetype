@@ -14,7 +14,7 @@
 <main>
     <section>
         <ul>
-            <!-- Model: pokemons -> List<com.archetype.mvc.model.SpeciesOverview> -->
+            <!-- Model: pokemons -> List<com.example.mvc.model.SpeciesOverview> -->
             <li th:each="p : ${pokemons}">
                 <a th:href="@{|/pokedex/${p.id}|}">
                     <strong th:text="${p.name}">Pokemon Name</strong>

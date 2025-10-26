@@ -1,0 +1,101 @@
+package com.example.news.persistence.internal;
+
+
+import com.example.news.domain.model.Pokemon;
+import com.example.news.domain.model.Species;
+import com.example.news.exception.PokemonNotFoundException;
+import com.example.news.mapper.persistence.PokemonPersistenceMapper;
+import com.example.news.mapper.persistence.SpeciesPersistenceMapper;
+import com.example.news.persistence.PokemonDataRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.UUID;
+
+@Component
+@RequiredArgsConstructor
+public class PokemonMongoDataRepo implements PokemonDataRepository {
+
+    private final PokemonRepository pokemonRepo;
+    private final SpeciesRepository speciesRepo;
+    private final SpeciesPersistenceMapper speciesMapper;
+    private final PokemonPersistenceMapper pokemonMapper;
+
+    @Override
+    public List<Species> getAllSpecies() {
+        return speciesMapper.toDomain(speciesRepo.findAll());
+    }
+
+    @Override
+    public Species getSpeciesById(int id) {
+        return speciesMapper.toDomain(speciesRepo.findById(id).orElseThrow());
+    }
+
+    @Override
+    public Species getSpeciesByName(String name) {
+        return speciesMapper.toDomain(speciesRepo.findByName(name).orElseThrow());
+    }
+
+    @Override
+    public Species save(Species species) {
+        speciesRepo.save(speciesMapper.toDocument(species));
+        return species;
+    }
+
+    @Override
+    public Pokemon save(Pokemon pokemon) {
+        pokemonRepo.save(pokemonMapper.toDocument(pokemon));
+        return pokemon;
+    }
+
+    @Override
+    public Pokemon getPokemonById(UUID id) {
+        var doc = pokemonRepo.findById(id).orElseThrow(() -> new PokemonNotFoundException(id));
+        return pokemonMapper.toDomain(doc);
+    }
+
+    @Override
+    public List<Pokemon> getPokemonByName(String name) {
+        var docs = pokemonRepo.findAllByName(name);
+        return pokemonMapper.toDomain(docs);
+    }
+
+    @Override
+    public void saveAll(List<Species> species) {
+        speciesRepo.saveAll(speciesMapper.toDocuments(species));
+    }
+
+    @Override
+    public boolean pokemonExistsById(UUID id) {
+        return pokemonRepo.existsById(id);
+    }
+
+    @Override
+    public boolean speciesExistsById(int id) {
+        return speciesRepo.existsById(id);
+    }
+
+    @Override
+    public boolean existsByNationalId(int i) {
+        return false;
+    }
+
+    @Override
+    public void deletePokemon(UUID id) {
+        pokemonRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Pokemon> getAllPokemon() {
+        return pokemonMapper.toDomain(pokemonRepo.findAll());
+    }
+
+    @Override
+    public List<Pokemon> getAllPokemonOfNationalId(int nationalId) {
+        var species = speciesRepo.getByNationalIdIs(nationalId);
+        return pokemonMapper.toDomain(pokemonRepo.getAllBySpeciesName(species.name()));
+    }
+
+
+}

@@ -29,7 +29,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Example base package: `com.example.<module>.layer` or `com.archetype.news`
+Example base package: `com.example.<module>.layer` or `com.example.news`
 
 Top-level packages under module `layer`:
 
@@ -52,7 +52,7 @@ Top-level packages under module `layer`:
     - `pubsub.subscriber` — Subscriber components (message handlers).
 - `config` — Spring configuration classes (profiles, beans, modules config).
 - `clients` — Declarative HTTP clients (Feign interfaces) for calling remote services. Organize clients by external service: `clients.<service>` (for example
-  `com.archetype.clients.pokemon`). Each service folder should contain:
+  `com.example.clients.pokemon`). Each service folder should contain:
     - Feign client interfaces (`*Client`).
     - Client-side DTOs (`dto` package) separate from domain/persistence DTOs.
     - Client-specific mappers (`mapper` package) to translate between client DTOs and the application's persistence/domain models.
@@ -99,13 +99,13 @@ Modulith specifics
 Examples (based on this repository)
 -----------------------------------
 
-- `com.archetype.news.controller.PokemonController`
-- `com.archetype.news.service.PokemonService`
-- `com.archetype.news.domain.model.Pokemon`
-- `com.archetype.news.controller.dto.request.PokemonCreate`
-- `com.archetype.news.domain.dto.mapper.PokemonMapper`
-- `com.archetype.news.persistence.document.PokemonDocument`
-- `com.archetype.news.persistence.internal.PokemonRepository` (repositories live under persistence)
+- `com.example.news.controller.PokemonController`
+- `com.example.news.service.PokemonService`
+- `com.example.news.domain.model.Pokemon`
+- `com.example.news.controller.dto.request.PokemonCreate`
+- `com.example.news.domain.dto.mapper.PokemonMapper`
+- `com.example.news.persistence.document.PokemonDocument`
+- `com.example.news.persistence.internal.PokemonRepository` (repositories live under persistence)
 
 Directory tree example
 ----------------------

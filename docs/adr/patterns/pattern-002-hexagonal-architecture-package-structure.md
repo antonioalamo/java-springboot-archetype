@@ -22,7 +22,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Base package example: `com.archetype.<module>.hexagonal` or `com.archetype.blogs.<submodule>`
+Base package example: `com.example.<module>.hexagonal` or `com.example.blogs.<submodule>`
 
 Preferred top-level package structure under the module:
 
@@ -57,12 +57,12 @@ Examples (based on repository)
 ------------------------------
 The repository contains an illustrative hexagonal module under `src/main/java/com/archetype/hexagonal`. Example package usage:
 
-- `com.archetype.blogs.adapter.in.http.PetController` (controller accepts HTTP requests and calls an inbound port)
-- `com.archetype.blogs.adapter.out.persistence.MongoPetRepositoryAdapter` (implements `application.port.out.PetRepositoryPort`)
-- `com.archetype.blogs.application.port.in.CreatePetPort` (inbound port)
-- `com.archetype.blogs.application.port.out.PetRepositoryPort` (outbound persistence port)
-- `com.archetype.blogs.application.service.CreatePetService` (implements `CreatePetPort` and orchestrates the domain)
-- `com.archetype.blogs.domain.model.Pet` (pure domain entity)
+- `com.example.blogs.adapter.in.http.PetController` (controller accepts HTTP requests and calls an inbound port)
+- `com.example.blogs.adapter.out.persistence.MongoPetRepositoryAdapter` (implements `application.port.out.PetRepositoryPort`)
+- `com.example.blogs.application.port.in.CreatePetPort` (inbound port)
+- `com.example.blogs.application.port.out.PetRepositoryPort` (outbound persistence port)
+- `com.example.blogs.application.service.CreatePetService` (implements `CreatePetPort` and orchestrates the domain)
+- `com.example.blogs.domain.model.Pet` (pure domain entity)
 
 ASCII tree (canonical)
 ----------------------

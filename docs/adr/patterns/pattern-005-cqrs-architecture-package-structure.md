@@ -22,7 +22,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Base package example: `com.archetype.<module>.cqrs` or `com.archetype.cqrs.<submodule>`
+Base package example: `com.example.<module>.cqrs` or `com.example.cqrs.<submodule>`
 
 Preferred top-level package structure under the module:
 
@@ -62,18 +62,18 @@ Examples (based on repository)
 Repository examples under `src/main/java/com/archetype/cqrs`:
 
 - Command side:
-  - `com.archetype.cqrs.command.api.CreatePokemonCommand`
-  - `com.archetype.cqrs.command.handler.CreatePokemonHandler`
-  - `com.archetype.cqrs.command.domain.PokemonAggregate`
-  - `com.archetype.cqrs.command.infrastructure.PokemonEventStore` (or repository)
+  - `com.example.cqrs.command.api.CreatePokemonCommand`
+  - `com.example.cqrs.command.handler.CreatePokemonHandler`
+  - `com.example.cqrs.command.domain.PokemonAggregate`
+  - `com.example.cqrs.command.infrastructure.PokemonEventStore` (or repository)
 - Query side:
-  - `com.archetype.cqrs.query.api.GetPokemonDetailsQuery`
-  - `com.archetype.cqrs.query.handler.GetPokemonDetailsHandler`
-  - `com.archetype.cqrs.query.readmodel.PokemonDetailsReadModel`
-  - `com.archetype.cqrs.query.infrastructure.PokemonReadRepository`
+  - `com.example.cqrs.query.api.GetPokemonDetailsQuery`
+  - `com.example.cqrs.query.handler.GetPokemonDetailsHandler`
+  - `com.example.cqrs.query.readmodel.PokemonDetailsReadModel`
+  - `com.example.cqrs.query.infrastructure.PokemonReadRepository`
 - Events & projections:
-  - `com.archetype.cqrs.events.model.PokemonCreatedEvent`
-  - `com.archetype.cqrs.projection.PokemonProjection` (consumes `PokemonCreatedEvent` and updates read model)
+  - `com.example.cqrs.events.model.PokemonCreatedEvent`
+  - `com.example.cqrs.projection.PokemonProjection` (consumes `PokemonCreatedEvent` and updates read model)
 
 ASCII tree (canonical)
 ----------------------

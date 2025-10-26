@@ -18,7 +18,7 @@ The domain model classes encapsulate business rules and invariants. Bugs within 
 
 ### Rules
 1. **Scope**
-   - These rules apply to the domain packages (e.g., `com.archetype.news.domain.*` and any other packages that exclusively contain domain logic).
+   - These rules apply to the domain packages (e.g., `com.example.news.domain.*` and any other packages that exclusively contain domain logic).
    - Integration, infrastructure, controllers, and adapters have their own testing standards (integration tests, contract tests, etc.) but are not subject to the 100% domain coverage requirement.
 
 2. **Unit Test Coverage**
@@ -57,7 +57,7 @@ The domain model classes encapsulate business rules and invariants. Bugs within 
 ### Implementation Steps
 1. Integrate testing tools into the build:
     - Add JaCoCo plugin for coverage reporting.
-    - Incorporate the Pitest plugin and configure it for domain packages (e.g., `com.archetype.news.domain.*`).
+    - Incorporate the Pitest plugin and configure it for domain packages (e.g., `com.example.news.domain.*`).
     - Adjust Gradle tasks:
         - `:domain:test` executes unit tests alongside JaCoCo.
         - `:domain:pitest` handles mutation analysis (fast mode for CI).

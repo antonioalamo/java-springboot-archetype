@@ -4,7 +4,7 @@
 if [ $# -ne 3 ]; then
     echo "Usage: $0 <root_directory> <old_package_name> <new_package_name>"
     echo
-    echo "Example: $0 src com.skeletor com.archetype"
+    echo "Example: $0 src com.skeletor com.example"
     echo
     echo "Arguments:"
     echo "  root_directory    - Directory to search for Java/Groovy files"

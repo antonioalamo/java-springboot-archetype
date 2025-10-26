@@ -4,7 +4,7 @@
 
     <weaver>
         <!-- only weave classes in our application-specific packages and logged library -->
-        <include within="com.archetype..*"/>
+        <include within="com.example..*"/>
         <include within="io.github.darkona.logged..*"/>
     </weaver>
 

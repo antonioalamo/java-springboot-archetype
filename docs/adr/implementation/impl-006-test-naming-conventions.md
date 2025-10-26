@@ -30,7 +30,7 @@ We adopt the following convention for test cases across the codebase:
 ## Consequences
 
 - New contributors must know to look at `@DisplayName` for actual test intent
-- CI logs will reflect display names (e.g., "FAILED com.archetype.news.DomainModelTests.domainModelMustNotDependOnOtherPackages" becomes "FAILED Domain models
+- CI logs will reflect display names (e.g., "FAILED com.example.news.DomainModelTests.domainModelMustNotDependOnOtherPackages" becomes "FAILED Domain models
   must not depend on any other project package")
 - Easier to refactor test method names without changing display names
 - More verbose assertion error messages aligned with display names
@@ -43,8 +43,8 @@ We adopt the following convention for test cases across the codebase:
 @Test
 @DisplayName("Domain models must not depend on any other project package")
 void domainModelMustNotDependOnOtherPackages() {
-    ArchRule rule = classes().that().resideInAPackage("com.archetype.news.domain.model..")
-            .should().onlyDependOnClassesThat().resideInAPackage("..com.archetype.news.domain.model..")
+    ArchRule rule = classes().that().resideInAPackage("com.example.news.domain.model..")
+            .should().onlyDependOnClassesThat().resideInAPackage("..com.example.news.domain.model..")
             .orShould().resideInAPackage("..junit..")
             .orShould().resideInAPackage("java..")
             .orShould().resideInAPackage("kotlin..");

@@ -21,7 +21,7 @@ Rationale
 
 Package layout (canonical)
 --------------------------
-Base package example: `com.archetype.<module>.mvc` or `com.archetype.mvc.<submodule>`
+Base package example: `com.example.<module>.mvc` or `com.example.mvc.<submodule>`
 
 Preferred top-level package structure under the module:
 
@@ -46,10 +46,10 @@ Examples (based on repository)
 ------------------------------
 The repository contains an MVC module and templates which illustrate the layout and conventions:
 
-- `com.archetype.mvc.controller.PokedexController` — Spring controller that handles requests and returns view names
-- `com.archetype.mvc.service.PokedexService` — encapsulates business logic for listing and retrieving Pokédex entries
-- `com.archetype.mvc.model.Pokemon` — model used by service and views
-- `com.archetype.mvc.persistence.PokedexRepository` — persistence repository
+- `com.example.mvc.controller.PokedexController` — Spring controller that handles requests and returns view names
+- `com.example.mvc.service.PokedexService` — encapsulates business logic for listing and retrieving Pokédex entries
+- `com.example.mvc.model.Pokemon` — model used by service and views
+- `com.example.mvc.persistence.PokedexRepository` — persistence repository
 - Templates:
   - `src/main/resources/templates/pokedex/list.html`
   - `src/main/resources/templates/pokedex/detail.html`
