@@ -17,7 +17,7 @@ ext {
     appName = 'news'
 
     // Azure repository configuration
-    /*  azure = {
+      azure = {
         maven {
              url = 'https://devops.consalud.net/Consalud/NuevoCore/_packaging/NuevoCore/maven/v1'
              name = 'NuevoCore'
@@ -26,7 +26,7 @@ ext {
                  password = findProperty('consaludAzurePAT')
              }
          }
-     }*/
+     }
 }
 
 group = "${mainPackage}"
@@ -70,7 +70,7 @@ gradle.taskGraph.whenReady { taskGraph ->
 // ===== Repositories =====
 repositories {
     mavenCentral()
-    //azure
+    azure
 }
 
 // ===== Dependency Resolution Strategy =====
