@@ -1,6 +1,6 @@
 [versions]
 # Java & Gradle
-java = "21"
+java = "25"
 gradle = "9.1.0"
 
 # Spring Framework
@@ -16,12 +16,12 @@ spring-security-oauth2-jose = "6.4.3"
 postgresql = "42.7.8"
 
 # Code Generation & Processing
-lombok = "1.18.36"
+lombok = "1.18.38"
 mapstruct = "1.6.3"
 lombok-mapstruct-binding = "0.2.0"
 
 # Testing
-archunit = "1.1.0"
+archunit = "1.4.1"
 testcontainers = "1.18.3"
 spock = "2.4-M6-groovy-4.0"
 groovy = "4.0.28"
