@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-#podman rmi -f docker.io/aalamo/news:1.0
 podman build --no-cache -t docker.io/aalamo/news:1.0 -f news.dockerfile .
 
 sleep 4
